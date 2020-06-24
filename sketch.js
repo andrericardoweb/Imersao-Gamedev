@@ -59,4 +59,5 @@ function draw() {
   scenario.move();
   personage.display();
   enemy.display();
+  enemy.move();
 }
