@@ -38,17 +38,37 @@ const enemyMatrix = [
   [312, 626],
 ]
 
+const personageMatrix = [
+  [0, 0],
+  [220, 0],
+  [440, 0],
+  [660, 0],
+  [0, 270],
+  [220, 270],
+  [440, 270],
+  [660, 270],
+  [0, 540],
+  [220, 540],
+  [440, 540],
+  [660, 540],
+  [0, 810],
+  [220, 810],
+  [440, 810],
+  [660, 810],
+]
+
 function preload() {
   sceneryImage = loadImage('images/scenario/forest.png');
   personageImage = loadImage('images/personage/running-witch.png');
   enemyImage = loadImage('images/enemy/drop.png');
-  personage = new Personage(personageImage);
+  //personage = new Personage(personageImage);
   soundtrack = loadSound('sounds/soundtrack.mp3');
 }
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
   scenario = new Scenario(sceneryImage, 3);
+  personage = new Personage(personageMatrix, personageImage, 0, 110,135, 220, 270);
   enemy = new Enemy(enemyMatrix, enemyImage, width - 50, 52, 52, 104, 104);
   frameRate(40);
   //soundtrack.loop();
