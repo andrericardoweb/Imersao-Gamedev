@@ -4,6 +4,7 @@ let personageImage;
 let enemyImage;
 let scenario;
 let soundtrack;
+let jumpSound;
 let personage;
 let enemy;
 
@@ -61,8 +62,8 @@ function preload() {
   sceneryImage = loadImage('images/scenario/forest.png');
   personageImage = loadImage('images/personage/running-witch.png');
   enemyImage = loadImage('images/enemy/drop.png');
-  //personage = new Personage(personageImage);
   soundtrack = loadSound('sounds/soundtrack.mp3');
+  jumpSound = loadSound('sounds/jump.mp3');
 }
 
 function setup() {
@@ -71,12 +72,13 @@ function setup() {
   personage = new Personage(personageMatrix, personageImage, 0, 110,135, 220, 270);
   enemy = new Enemy(enemyMatrix, enemyImage, width - 50, 52, 52, 104, 104);
   frameRate(40);
-  //soundtrack.loop();
+  soundtrack.loop();
 }
 
 function keyPressed() {
   if (key === 'ArrowUp') {
     personage.jump();
+    jumpSound.play();
   }
 }
 
@@ -86,7 +88,11 @@ function draw() {
 
   personage.display();
   personage.applyGravity();
-  
+
   enemy.display();
   enemy.move();
+
+  if (personage.colliding(enemy)) {
+    noLoop();
+  }
 }

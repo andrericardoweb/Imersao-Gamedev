@@ -22,4 +22,21 @@ class Personage extends Animation{
     }
   }
 
+  colliding() {
+    const precision = .7;
+    const collision = collideRectRect(
+      this.x, 
+      this.y, 
+      this.personageWidth * precision, 
+      this.personageHeight * precision,
+      enemy.x,
+      enemy.y, 
+      enemy.personageWidth * precision,
+      enemy.personageHeight * precision,
+    );
+    
+    return collision;
+  }
+
+
 }
