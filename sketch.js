@@ -15,7 +15,7 @@ function preload() {
 function setup() {
   createCanvas(windowWidth, windowHeight);
   scenario = new Scenario(sceneryImage, 3);
-  soundtrack.loop();
+  //soundtrack.loop();
   frameRate(40);
 }
 

@@ -1,4 +1,5 @@
 class Personage {
+
   constructor(image) {
     this.image = image;
     this.matrix = [
