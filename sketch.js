@@ -94,5 +94,6 @@ function draw() {
 
   if (personage.colliding(enemy)) {
     noLoop();
+    soundtrack.stop();
   }
 }
