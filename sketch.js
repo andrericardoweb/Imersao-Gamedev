@@ -74,10 +74,19 @@ function setup() {
   //soundtrack.loop();
 }
 
+function keyPressed() {
+  if (key === 'ArrowUp') {
+    personage.jump();
+  }
+}
+
 function draw() {
   scenario.display();
   scenario.move();
+
   personage.display();
+  personage.applyGravity();
+  
   enemy.display();
   enemy.move();
 }
