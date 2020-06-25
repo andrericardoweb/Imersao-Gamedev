@@ -1,10 +1,11 @@
 class Personage extends Animation{
 
-  constructor(matrix, image, x, personageWidth, personageHeight, spriteWidth, spriteHeight) {
-    super(matrix, image, x, personageWidth, personageHeight, spriteWidth, spriteHeight)
+  constructor(matrix, image, x, yVariation, personageWidth, personageHeight, spriteWidth, spriteHeight) {
+    super(matrix, image, x, yVariation, personageWidth, personageHeight, spriteWidth, spriteHeight);
 
-    this.baseY = height - this.personageHeight;
-    this.y = this.baseY;
+    this.yVariation = yVariation;
+    this.yInitial = height - this.personageHeight - this.yVariation;
+    this.y = this.yInitial;
     this.jumpSpeed = 0;
     this.gravity = 3;
   }
@@ -17,8 +18,8 @@ class Personage extends Animation{
     this.y = this.y + this.jumpSpeed;
     this.jumpSpeed = this.jumpSpeed + this.gravity;
 
-    if (this.y > this.baseY) {
-      this.y = this.baseY
+    if (this.y > this.yInitial) {
+      this.y = this.yInitial;
     }
   }
 

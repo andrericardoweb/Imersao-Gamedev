@@ -1,14 +1,15 @@
 class Enemy extends Animation {
-  constructor(matrix, image, x, personageWidth, personageHeight, spriteWidth, spriteHeight) {
-    super(matrix, image, x, personageWidth, personageHeight, spriteWidth, spriteHeight)
+  constructor(matrix, image, x, yVariation, personageWidth, personageHeight, spriteWidth, spriteHeight, speed, delay) {
+    super(matrix, image, x, yVariation, personageWidth, personageHeight, spriteWidth, spriteHeight)
 
-    this.speed = 8;
+    this.speed = speed;
+    this.delay = delay;
   }
 
   move() {
     this.x = this.x - this.speed;
 
-    if (this.x < -this.personageWidth) {
+    if (this.x < -this.personageWidth - 200) {
       this.x = width;
     }
   }
