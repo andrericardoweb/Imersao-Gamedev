@@ -4,6 +4,7 @@ let personageImage;
 let enemyImage;
 let bigEnemyImage;
 let flyingEnemyImage;
+let gameOverImage;
 
 let scenario;
 let soundtrack;
@@ -117,10 +118,14 @@ const enemies = [];
 
 function preload() {
   sceneryImage = loadImage('images/scenario/forest.png');
+  gameOverImage = loadImage('images/assets/game-over.png');
+
   personageImage = loadImage('images/personage/running-witch.png');
+
   enemyImage = loadImage('images/enemy/drop.png');
   bigEnemyImage = loadImage('images/enemy/troll.png');
   flyingEnemyImage = loadImage('images/enemy/flying-drop.png');
+
   soundtrack = loadSound('sounds/soundtrack.mp3');
   jumpSound = loadSound('sounds/jump.mp3');
 }
@@ -166,8 +171,8 @@ function draw() {
     enemy.move();
 
     if (personage.colliding(enemy)) {
-      //console.log('Colidiu');
-      //noLoop();
+      image(gameOverImage, width/2 - 200, height/3);
+      noLoop();
       //soundtrack.stop();
     }
   });
