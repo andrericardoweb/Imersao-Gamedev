@@ -23,7 +23,7 @@ class Personage extends Animation{
     }
   }
 
-  colliding() {
+  colliding(enemy) {
     const precision = .7;
     const collision = collideRectRect(
       this.x, 
