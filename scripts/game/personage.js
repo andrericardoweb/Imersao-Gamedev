@@ -7,11 +7,16 @@ class Personage extends Animation{
     this.yInitial = height - this.personageHeight - this.yVariation;
     this.y = this.yInitial;
     this.jumpSpeed = 0;
-    this.gravity = 3;
+    this.gravity = 6;
+    this.jumpHeight = -50;
+    this.jumps = 0;
   }
 
   jump() {
-    this.jumpSpeed = - 30;
+    if (this.jumps < 2) {
+      this.jumpSpeed = this.jumpHeight;
+      this.jumps++;
+    }
   }
 
   applyGravity() {
@@ -20,6 +25,7 @@ class Personage extends Animation{
 
     if (this.y > this.yInitial) {
       this.y = this.yInitial;
+      this.jumps = 0;
     }
   }
 
