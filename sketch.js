@@ -14,6 +14,8 @@ let enemy;
 let bigEnemy;
 let flyingEnemy;
 
+let punctuation;
+
 const enemyMatrix = [
   [0, 0],
   [104, 0],
@@ -126,6 +128,8 @@ function preload() {
 function setup() {
   createCanvas(windowWidth, windowHeight);
   scenario = new Scenario(sceneryImage, 3);
+  punctuation = new Punctuation();
+
   personage = new Personage(personageMatrix, personageImage, 0, 30, 110,135, 220, 270);
   
    const enemy = new Enemy(enemyMatrix, enemyImage, width - 52, 30, 52, 52, 104, 104, 8, 200);
@@ -137,7 +141,7 @@ function setup() {
   enemies.push(flyingEnemy);
 
   frameRate(40);
-  soundtrack.loop();
+  //soundtrack.loop();
 }
 
 function keyPressed() {
@@ -151,6 +155,9 @@ function draw() {
   scenario.display();
   scenario.move();
 
+  punctuation.display();
+  punctuation.addPoints();
+
   personage.display();
   personage.applyGravity();
 
@@ -159,9 +166,9 @@ function draw() {
     enemy.move();
 
     if (personage.colliding(enemy)) {
-      console.log('Colidiu');
-      noLoop();
-      soundtrack.stop();
+      //console.log('Colidiu');
+      //noLoop();
+      //soundtrack.stop();
     }
   });
   
