@@ -111,6 +111,8 @@ const flyingEnemyMatrix = [
   [0, 750],
 ]
 
+const enemies = [];
+
 function preload() {
   sceneryImage = loadImage('images/scenario/forest.png');
   personageImage = loadImage('images/personage/running-witch.png');
@@ -125,11 +127,17 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   scenario = new Scenario(sceneryImage, 3);
   personage = new Personage(personageMatrix, personageImage, 0, 30, 110,135, 220, 270);
-  enemy = new Enemy(enemyMatrix, enemyImage, width - 52, 30, 52, 52, 104, 104, 8, 100);
-  bigEnemy = new Enemy(bigEnemyMatrix, bigEnemyImage, width, 0, 200, 200, 400, 400, 8, 500);
-  flyingEnemy = new Enemy(flyingEnemyMatrix, flyingEnemyImage, width - 52, 160, 100, 75, 200, 150, 5, 100)
+  
+   enemy = new Enemy(enemyMatrix, enemyImage, width - 52, 30, 52, 52, 104, 104, 8, 200);
+   bigEnemy = new Enemy(bigEnemyMatrix, bigEnemyImage, width, 0, 200, 200, 400, 400, 8, 1500);
+   flyingEnemy = new Enemy(flyingEnemyMatrix, flyingEnemyImage, width - 52, 160, 100, 75, 200, 150, 5, 2500);
+
+  enemies.push(enemy);
+  enemies.push(bigEnemy);
+  enemies.push(flyingEnemy);
+
   frameRate(40);
-  //soundtrack.loop();
+  soundtrack.loop();
 }
 
 function keyPressed() {
@@ -146,15 +154,16 @@ function draw() {
   personage.display();
   personage.applyGravity();
 
-  enemy.display();
-  enemy.move();
-  bigEnemy.display();
-  bigEnemy.move();
-  flyingEnemy.display();
-  flyingEnemy.move();
+  enemies.forEach(enemy => {
+    enemy.display();
+    enemy.move();
 
-  if (personage.colliding(enemy)) {
-    //noLoop();
-    //soundtrack.stop();
-  }
+    if (personage.colliding(enemy)) {
+      console.log('Colidiu');
+      noLoop();
+      soundtrack.stop();
+    }
+  });
+  
+  
 }
