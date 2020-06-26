@@ -12,6 +12,7 @@ let jumpSound;
 let personage;
 let enemy;
 let bigEnemy;
+let flyingEnemy;
 
 const enemyMatrix = [
   [0, 0],
@@ -43,7 +44,6 @@ const enemyMatrix = [
   [208, 626],
   [312, 626],
 ]
-
 const personageMatrix = [
   [0, 0],
   [220, 0],
@@ -62,7 +62,6 @@ const personageMatrix = [
   [440, 810],
   [660, 810],
 ]
-
 const bigEnemyMatrix = [
   [0,0],
   [400,0],
@@ -93,7 +92,6 @@ const bigEnemyMatrix = [
   [400, 2000],
   [800, 2000],
 ]
-
 const flyingEnemyMatrix = [
   [0,0],
   [200, 0],
@@ -129,6 +127,7 @@ function setup() {
   personage = new Personage(personageMatrix, personageImage, 0, 30, 110,135, 220, 270);
   enemy = new Enemy(enemyMatrix, enemyImage, width - 52, 30, 52, 52, 104, 104, 8, 100);
   bigEnemy = new Enemy(bigEnemyMatrix, bigEnemyImage, width, 0, 200, 200, 400, 400, 8, 500);
+  flyingEnemy = new Enemy(flyingEnemyMatrix, flyingEnemyImage, width - 52, 160, 100, 75, 200, 150, 5, 100)
   frameRate(40);
   //soundtrack.loop();
 }
@@ -149,12 +148,13 @@ function draw() {
 
   enemy.display();
   enemy.move();
-
   bigEnemy.display();
   bigEnemy.move();
+  flyingEnemy.display();
+  flyingEnemy.move();
 
   if (personage.colliding(enemy)) {
-    noLoop();
-    soundtrack.stop();
+    //noLoop();
+    //soundtrack.stop();
   }
 }
