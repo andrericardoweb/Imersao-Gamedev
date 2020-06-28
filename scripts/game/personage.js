@@ -44,6 +44,4 @@ class Personage extends Animation{
     
     return collision;
   }
-
-
 }

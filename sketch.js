@@ -16,6 +16,7 @@ let bigEnemy;
 let flyingEnemy;
 
 let punctuation;
+let currentEnemy = 0;
 
 const enemyMatrix = [
   [0, 0],
@@ -137,10 +138,10 @@ function setup() {
 
   personage = new Personage(personageMatrix, personageImage, 0, 30, 110,135, 220, 270);
   
-   const enemy = new Enemy(enemyMatrix, enemyImage, width - 52, 30, 52, 52, 104, 104, 8, 200);
-   const bigEnemy = new Enemy(bigEnemyMatrix, bigEnemyImage, width, 0, 200, 200, 400, 400, 8, 1500);
-   const flyingEnemy = new Enemy(flyingEnemyMatrix, flyingEnemyImage, width - 52, 160, 100, 75, 200, 150, 5, 2500);
-
+  const enemy = new Enemy(enemyMatrix, enemyImage, width - 52, 30, 52, 52, 104, 104, 10, 100);
+  const flyingEnemy = new Enemy(flyingEnemyMatrix, flyingEnemyImage, width - 52, 200, 100, 75, 200, 150, 10, 100);
+  const bigEnemy = new Enemy(bigEnemyMatrix, bigEnemyImage, width, 0, 200, 200, 400, 400, 10, 100);
+  
   enemies.push(enemy);
   enemies.push(bigEnemy);
   enemies.push(flyingEnemy);
@@ -166,16 +167,22 @@ function draw() {
   personage.display();
   personage.applyGravity();
 
-  enemies.forEach(enemy => {
-    enemy.display();
-    enemy.move();
+  const enemy = enemies[currentEnemy];
+  const visibleEnemy = enemy.x < -enemy.personageWidth;
+
+  enemy.display();
+  enemy.move();
+
+  if(visibleEnemy) {
+    currentEnemy++;
+    if(currentEnemy > 2){
+      currentEnemy = 0;
+    }
+  }
 
     if (personage.colliding(enemy)) {
-      image(gameOverImage, width/2 - 200, height/3);
-      noLoop();
+      //image(gameOverImage, width/2 - 200, height/3);
+      //noLoop();
       //soundtrack.stop();
     }
-  });
-  
-  
 }
