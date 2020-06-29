@@ -8,6 +8,7 @@ let gameOverImage;
 let scenario;
 let soundtrack;
 let jumpSound;
+let game;
 
 let personage;
 let enemy;
@@ -15,7 +16,6 @@ let bigEnemy;
 let flyingEnemy;
 
 let punctuation;
-let currentEnemy = 0;
 
 const enemyMatrix = [
   [0, 0],
