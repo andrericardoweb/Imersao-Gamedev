@@ -1,4 +1,7 @@
 function preload() {
+  homeScreenImage = loadImage('images/assets/home-screen.png');
+  homeScreenFont = loadFont('images/assets/home-screen-font.otf');
+
   sceneryImage = loadImage('images/scenario/forest.png');
   gameOverImage = loadImage('images/assets/game-over.png');
 

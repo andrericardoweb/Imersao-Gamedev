@@ -1,3 +1,5 @@
+let homeScreenImage;
+let homeScreenFont;
 let sceneryImage;
 let personageImage;
 let enemyImage;
@@ -9,6 +11,8 @@ let scenario;
 let soundtrack;
 let jumpSound;
 let game;
+let homeScreen;
+let managerButton;
 
 let personage;
 let enemy;
@@ -16,6 +20,8 @@ let bigEnemy;
 let flyingEnemy;
 
 let punctuation;
+let currentScene = 'homeScreen';
+let scenes;
 
 const enemyMatrix = [
   [0, 0],
