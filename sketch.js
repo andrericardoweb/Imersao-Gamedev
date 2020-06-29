@@ -10,8 +10,8 @@ function setup() {
     homeScreen
   };
   managerButton = new ManagerButton('Start', width/2, height/2);
-  //frameRate(40);
-  //soundtrack.loop();
+  frameRate(40);
+  soundtrack.loop();
 }
 
 function keyPressed() {

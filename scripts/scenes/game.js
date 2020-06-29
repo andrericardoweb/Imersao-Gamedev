@@ -50,9 +50,9 @@ class Game {
   }
 
     if (personage.colliding(enemy)) {
-      //image(gameOverImage, width/2 - 200, height/3);
-      //noLoop();
-      //soundtrack.stop();
+      image(gameOverImage, width/2 - 200, height/3);
+      noLoop();
+      soundtrack.stop();
     }
   }
 }

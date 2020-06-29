@@ -25,6 +25,7 @@ class HomeScreen {
   }
 
   _button() {
+    managerButton.y = height / 7 * 5;
     managerButton.draw();
   }
 }
