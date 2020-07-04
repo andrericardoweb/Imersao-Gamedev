@@ -1,30 +1,14 @@
 class Game {
   constructor() {
     this.indice = 0;
-    this.map = [
-      {
-        enemy: 0,
-        speed: 10
-      },
-      {
-        enemy: 1,
-        speed: 30
-      },
-      {
-        enemy: 1,
-        speed: 15
-      },
-      {
-        enemy: 2,
-        speed: 40
-      },
-    ];
+
+    this.map = ribbon.map; 
   }
 
   setup() {
     scenario = new Scenario(sceneryImage, 3);
     punctuation = new Punctuation();
-    life = new Life(3, 3);
+    life = new Life(ribbon.settings.maxLife, ribbon.settings.initialLife);
 
     personage = new Personage(personageMatrix, personageImage, 0, 30, 110, 135, 220, 270);
 

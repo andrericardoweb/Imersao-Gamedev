@@ -11,7 +11,7 @@ function preload() {
   bigEnemyImage = loadImage('images/enemy/troll.png');
   flyingEnemyImage = loadImage('images/enemy/flying-drop.png');
   lifeImage = loadImage('images/assets/heart.png');
-
+  ribbon = loadJSON('ribbon/ribbon.json');
 
   soundtrack = loadSound('sounds/soundtrack.mp3');
   jumpSound = loadSound('sounds/jump.mp3');

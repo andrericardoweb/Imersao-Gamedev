@@ -15,6 +15,7 @@ let game;
 let homeScreen;
 let managerButton;
 let life;
+let ribbon;
 
 let personage;
 let enemy;
