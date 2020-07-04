@@ -10,6 +10,8 @@ function preload() {
   enemyImage = loadImage('images/enemy/drop.png');
   bigEnemyImage = loadImage('images/enemy/troll.png');
   flyingEnemyImage = loadImage('images/enemy/flying-drop.png');
+  lifeImage = loadImage('images/assets/heart.png');
+
 
   soundtrack = loadSound('sounds/soundtrack.mp3');
   jumpSound = loadSound('sounds/jump.mp3');

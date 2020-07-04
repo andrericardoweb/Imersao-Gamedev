@@ -6,6 +6,7 @@ let enemyImage;
 let bigEnemyImage;
 let flyingEnemyImage;
 let gameOverImage;
+let lifeImage;
 
 let scenario;
 let soundtrack;
@@ -13,6 +14,7 @@ let jumpSound;
 let game;
 let homeScreen;
 let managerButton;
+let life;
 
 let personage;
 let enemy;
